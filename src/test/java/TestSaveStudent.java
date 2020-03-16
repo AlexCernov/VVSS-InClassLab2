@@ -19,8 +19,10 @@ public class TestSaveStudent {
 
     private Service service;
 
-    @Before
-    public void setup(){
+
+
+    @Test
+    public void testBetween(){
 
         Validator<Student> studentValidator = new StudentValidator();
         Validator<Tema> temaValidator = new TemaValidator();
@@ -31,10 +33,6 @@ public class TestSaveStudent {
         NotaXMLRepository fileRepository3 = new NotaXMLRepository(notaValidator, "note.xml");
 
         service = new Service(fileRepository1, fileRepository2, fileRepository3);
-    }
-
-    @Test
-    public void testBetween(){
 
         //test between 110 and 938
 
@@ -50,12 +48,32 @@ public class TestSaveStudent {
     @Test
     public void testAbove(){
 
+        Validator<Student> studentValidator = new StudentValidator();
+        Validator<Tema> temaValidator = new TemaValidator();
+        Validator<Nota> notaValidator = new NotaValidator();
+
+        StudentXMLRepository fileRepository1 = new StudentXMLRepository(studentValidator, "studenti.xml");
+        TemaXMLRepository fileRepository2 = new TemaXMLRepository(temaValidator, "teme.xml");
+        NotaXMLRepository fileRepository3 = new NotaXMLRepository(notaValidator, "note.xml");
+
+        service = new Service(fileRepository1, fileRepository2, fileRepository3);
+
         int done=service.saveStudent("12","Raul",950);
         assertEquals(0,done);
     }
 
     @Test
     public void testBelow(){
+
+        Validator<Student> studentValidator = new StudentValidator();
+        Validator<Tema> temaValidator = new TemaValidator();
+        Validator<Nota> notaValidator = new NotaValidator();
+
+        StudentXMLRepository fileRepository1 = new StudentXMLRepository(studentValidator, "studenti.xml");
+        TemaXMLRepository fileRepository2 = new TemaXMLRepository(temaValidator, "teme.xml");
+        NotaXMLRepository fileRepository3 = new NotaXMLRepository(notaValidator, "note.xml");
+
+        service = new Service(fileRepository1, fileRepository2, fileRepository3);
         int done=service.saveStudent("13","Raul",50);
         assertEquals(0,done);
     }
