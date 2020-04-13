@@ -86,7 +86,7 @@ public class TestBigBang {
 
         service = new Service(fileRepository1, fileRepository2, fileRepository3);
 
-        int done1=service.saveStudent("1","Alex",931);
+        int done1=service.saveStudent("1999","Alex",931);
 
         assertEquals(1,done1);
 
@@ -94,7 +94,7 @@ public class TestBigBang {
 
         assertEquals(1,done2);
 
-        int done3=service.saveNota("1","1",10,1,"feed");
+        int done3=service.saveNota("1999","1",10,1,"feed");
 
         assertEquals(1,done3);
 
