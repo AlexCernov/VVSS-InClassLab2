@@ -34,7 +34,7 @@ public class TestBigBang {
 
         int done1=service.saveStudent("1110","Raul",231);
 
-        assertEquals(1,done1);
+        assertEquals(0,done1);
     }
 
     @Test
